@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/custom_button.dart';
+import 'package:quiz_app/text_style.dart';
+import 'package:quiz_app/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget{
   const QuestionsScreen({super.key}) ;
@@ -9,15 +12,24 @@ class QuestionsScreen extends StatefulWidget{
 
 class _Questions extends State<QuestionsScreen> {
   @override
-  Widget build(BuildContext context) { // Repair: Changed 'Context' to 'context'
-    return const Center(
-      child: Text(
-        "Questions screen",
-        style: TextStyle(
-          color: Colors.white, 
-          fontSize: 24,
-        ),
+  Widget build( context) { // Repair: Changed 'Context' to 'context'
+
+    final currentQuestion= questions[0];
+
+    return SizedBox( //we can also use Center if so delete 14 and uncomment 16 and comment 17
+      width: double.infinity,
+      child: Column(
+        //mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+            StyledText(currentQuestion.text,20.5),
+            const SizedBox(height: 20),
+            customAnswerButton(currentQuestion.answers[0],(){}),
+            customAnswerButton(currentQuestion.answers[1],(){}),
+            customAnswerButton(currentQuestion.answers[2],(){}),
+            customAnswerButton(currentQuestion.answers[3],(){}),
+        ],
       ),
-    );
+    ) ;
   }
 }

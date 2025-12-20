@@ -12,14 +12,21 @@ class Quiz extends StatefulWidget {
 class _Quiz extends State<Quiz> {
   Widget? activeScreen; 
 
+
+  //IF WE DONT WANT TO USE THIS INIT METHOD AND ALL WE CAN JUSRT USE THIS
+  //THERNARY EXPRESSION LIKE IF ELSE TO SET STATE.
+  // TO USE UNCOMMENT LINE 19,29,51,52,53 AND COMMENT 30,21,22,23,24,25,50
+  //var activeScreen = 'start-screen'; 
+
   @override
   void initState() {
-    super.initState(); // Repair: Required for the framework to initialize properly
+    super.initState(); 
     activeScreen = StartScreen(switchScreen);
   }
 
   void switchScreen() {
     setState(() {
+      // activeScreen = 'question-screen';
       activeScreen = const QuestionsScreen();
     });
   }
@@ -41,6 +48,9 @@ class _Quiz extends State<Quiz> {
             ),
           ),
           child: activeScreen, // This will now correctly swap widgets
+          // child : activeScreen == 'start-screen'  
+          //   ? StartScreen(switchScreen)
+          //   : const QuestionsScreen(),
         ),
       ),
     );
