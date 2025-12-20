@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/text_style.dart';
 
 class StartScreen extends StatelessWidget{
+  const StartScreen(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
   Widget build (Context){
@@ -34,7 +37,7 @@ class StartScreen extends StatelessWidget{
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton.icon(
-                  onPressed: () {}, // Changed from null to enable the button
+                  onPressed: startQuiz, // Button to chage the state (frame)
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 236, 219, 39),
                     foregroundColor: const Color.fromARGB(255, 16, 0, 0),
