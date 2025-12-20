@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/text_style.dart';
 
 class HomeContainer extends StatefulWidget {
-  const HomeContainer({super.key}); // Added key and standard naming
+  const HomeContainer({super.key});
 
   @override
   State<HomeContainer> createState() => _HomeContainerState();
@@ -16,8 +16,8 @@ class _HomeContainerState extends State<HomeContainer> {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color.fromARGB(255, 137, 223, 255),
-            Color.fromARGB(255, 82, 197, 255),
+            Color.fromARGB(255, 123, 220, 255),
+            Color.fromARGB(255, 69, 193, 255),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -25,45 +25,44 @@ class _HomeContainerState extends State<HomeContainer> {
       ),
       child: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Center items as a group
+          // Pushes children to the Top, Middle, and Bottom
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // 1. Title at top
+            // 1. TOP: Title
             const Padding(
-              padding: EdgeInsets.only(top: 20, bottom: 40),
-              child: StyledText("Quiz App", 30.5),
+              padding: EdgeInsets.only(top: 45),
+              child: StyledText("Quiz App", 31.5),
             ),
 
-            // 2. Logo - reduced height to prevent overflow
-            Image.asset(
-              'assets/images/logo.png',
-              height: 300, // Reduced from 600
-              width: 300,
-              // Tip: You can also use color: Colors.white.withOpacity(0.5) 
-              // to make it semi-transparent if you like.
-            ),
-
-            const SizedBox(height: 40), // Gap after image
-
-            // 3. Subtitle
-            const StyledText("Learn flutter the fun way!", 20),
-
-            const SizedBox(height: 30), // Gap before button
-
-            // 4. Action Button
-            ElevatedButton(
-              onPressed: () {
-                // To-do: Add navigation logic here
-              }, 
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 236, 219, 39),
-                foregroundColor: const Color.fromARGB(255, 16, 0, 0),
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+            // 2. MIDDLE: Image and Button Group
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  height: 250, // Smaller height to ensure it fits on all screens
+                  width: 250,
                 ),
-              ),
-              child: const StyledText("Start Quiz", 20),
+                const SizedBox(height: 39),
+                const StyledText("Learn flutter the fun way !", 20),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: () {}, // Changed from null to enable the button
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 236, 219, 39),
+                    foregroundColor: const Color.fromARGB(255, 16, 0, 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                  ),
+                  child: const StyledText("Start Quiz", 30),
+                ),
+              ],
             ),
+
+            // 3. BOTTOM: Invisible Anchor
+            // We use a smaller SizedBox here (e.g., 50 instead of 500)
+            // to act as the "bottom" child for the spaceBetween logic.
+            const SizedBox(height: 40),
           ],
         ),
       ),
