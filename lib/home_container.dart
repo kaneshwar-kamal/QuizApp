@@ -1,58 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/text_style.dart';
 
+class HomeContainer extends StatefulWidget {
+  const HomeContainer({super.key});
 
-
-class homeContainer extends StatefulWidget{
   @override
-  State<homeContainer> createState()=> _homeContainer();
+  State<HomeContainer> createState() => _HomeContainerState();
 }
 
-class _homeContainer extends State<homeContainer>{
+class _HomeContainerState extends State<HomeContainer> {
   @override
-  Widget build(context){
+  Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors:[
+          colors: [
             Color.fromARGB(255, 137, 223, 255),
             Color.fromARGB(255, 82, 197, 255),
           ],
-          begin:Alignment.topLeft,
-          end:Alignment.bottomRight,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
       ),
-      child: SizedBox.expand(
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding : const EdgeInsets.only(top:20),
-                child : StyledText("Quiz App",30.5),
-              ),
-              Column(
-                children: [
-                  Image.asset(
-                    'assets/images/logo.png',
-                    height: 600,
-                    width: 300,
+      child: SafeArea(
+        child: Column(
+          // Pushes children to the Top, Middle, and Bottom
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // 1. TOP: Title
+            const Padding(
+              padding: EdgeInsets.only(top: 40),
+              child: StyledText("Quiz App", 30.5),
+            ),
+
+            // 2. MIDDLE: Image and Button Group
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  height: 250, // Smaller height to ensure it fits on all screens
+                  width: 250,
+                ),
+                const SizedBox(height: 40),
+                const StyledText("Learn flutter the fun way!", 20),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: () {}, // Changed from null to enable the button
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 236, 219, 39),
+                    foregroundColor: const Color.fromARGB(255, 16, 0, 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   ),
-                  const SizedBox(height:20),
-                  ElevatedButton(
-                    onPressed: null,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 236, 219, 39),
-                      foregroundColor: const Color.fromARGB(255, 16, 0, 0),
-                    ),
-                    child: const StyledText("Start Quiz",20)
-                  ),
-                  SizedBox(height: 100),
-                ],
-              ),
-            ],
-          ),
+                  child: const StyledText("Start Quiz", 20),
+                ),
+              ],
+            ),
+
+            // 3. BOTTOM: Invisible Anchor
+            // We use a smaller SizedBox here (e.g., 50 instead of 500)
+            // to act as the "bottom" child for the spaceBetween logic.
+            const SizedBox(height: 50),
+          ],
         ),
       ),
     );
