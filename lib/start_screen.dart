@@ -18,7 +18,7 @@ class StartScreen extends StatelessWidget{
             // 1. TOP: Title
             const Padding(
               padding: EdgeInsets.only(top: 45),
-              child: StyledText("Quiz App", 31.5),
+              child: StyledText("Quiz App", 31.5,),
             ),
 
             // 2. MIDDLE: Image and Button Group
@@ -41,9 +41,9 @@ class StartScreen extends StatelessWidget{
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 236, 219, 39),
                     foregroundColor: const Color.fromARGB(255, 16, 0, 0),
-                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 4),
                   ),
-                  label: const StyledText("Start Quiz", 30),
+                  label: const StyledText("Start Quiz", 20),
                   icon: const Icon(Icons.arrow_right_alt,size:40),
                 ),
               ],
