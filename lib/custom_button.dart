@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class customAnswerButton extends StatelessWidget {
   const customAnswerButton(this.message,this.onTap ,{super.key});
@@ -15,7 +16,7 @@ class customAnswerButton extends StatelessWidget {
         foregroundColor: const Color.fromARGB(255, 16, 0, 0),
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
       ),
-      child:Text(message),
+      child:Text(message, textAlign: TextAlign.center,style: GoogleFonts.getFont('Lato')),
     );
   }
 }

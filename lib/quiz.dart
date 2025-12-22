@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/Questions.dart';
+import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/start_screen.dart';
+import 'package:quiz_app/results_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -11,6 +13,7 @@ class Quiz extends StatefulWidget {
 
 class _Quiz extends State<Quiz> {
   Widget? activeScreen; 
+  List<String> selectedAnswers = [];
 
 
   //IF WE DONT WANT TO USE THIS INIT METHOD AND ALL WE CAN JUSRT USE THIS
@@ -27,12 +30,25 @@ class _Quiz extends State<Quiz> {
   void switchScreen() {
     setState(() {
       // activeScreen = 'question-screen';
-      activeScreen = const QuestionsScreen();
+      activeScreen = QuestionsScreen (onSelectedAnswer : chooseAnswer);
     });
   }
 
+  void chooseAnswer(String answer){
+    selectedAnswers.add(answer);
+
+    if(selectedAnswers.length == questions.length){
+      setState(() {
+        selectedAnswers = [];
+        activeScreen = ResultsScreen();
+      });
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) { // Repair: Changed 'Context' (class) to 'context' (variable)
+    
     return MaterialApp(
       home: Scaffold(
         body: Container(
