@@ -1,16 +1,47 @@
-# quiz_app
+# QuizApp
 
-A new Flutter project.
+A basic Flutter quiz application.
+
+## Features
+- Multiple-choice questions
+- Simple score calculation
+- Works on Android, iOS, Web, Windows, macOS, and Linux (Flutter multi-platform)
+
+## Tech Stack
+- Flutter / Dart
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
+- Flutter SDK installed
+- Android Studio / VS Code (optional but recommended)
 
-A few resources to get you started if this is your first Flutter project:
+### Run the app
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kaneshwar-kamal/QuizApp.git
+   cd QuizApp
+   ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. Run:
+   ```bash
+   flutter run
+   ```
+
+## Project Structure (common)
+- `lib/` - main application code
+- `assets/` - images/fonts/other assets (if used)
+- `test/` - tests
+
+## Useful Flutter Links
+- Flutter codelab: https://docs.flutter.dev/get-started/codelab
+- Flutter cookbook: https://docs.flutter.dev/cookbook
+- Flutter docs: https://docs.flutter.dev/
+
+## License
+Add a license if you plan to open-source this project (e.g., MIT).
